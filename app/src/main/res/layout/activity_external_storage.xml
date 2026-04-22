@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FDF7FF">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Demo: External Storage"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/edtExternalData"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="Nhập dữ liệu để lưu (Tệp văn bản)"
+        android:gravity="top"
+        android:padding="10dp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSaveExternal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lưu"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#673AB7" />
+
+        <Button
+            android:id="@+id/btnReadExternal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Đọc Dữ Liệu"
+            android:backgroundTint="#673AB7" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#673AB7"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/txtExternalContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không có dữ liệu trong file external.txt"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="#EEEEEE" />
+
+</LinearLayout>
