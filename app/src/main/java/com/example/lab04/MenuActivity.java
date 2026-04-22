@@ -24,7 +24,6 @@ public class MenuActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Câu 1: Shared Preferences Login
                 Intent intent = new Intent(MenuActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -33,7 +32,6 @@ public class MenuActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Câu 2: Internal Storage
                 Intent intent = new Intent(MenuActivity.this, InternalStorageActivity.class);
                 startActivity(intent);
             }
@@ -42,7 +40,6 @@ public class MenuActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Câu 3: External Storage
                 Intent intent = new Intent(MenuActivity.this, ExternalStorageActivity.class);
                 startActivity(intent);
             }
@@ -51,8 +48,8 @@ public class MenuActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Câu 4: SQLite Management
-                Intent intent = new Intent(MenuActivity.this, SQLiteActivity.class);
+                // Chuyển sang màn hình Đăng nhập SQLite trước khi vào quản lý
+                Intent intent = new Intent(MenuActivity.this, SQLiteLoginActivity.class);
                 startActivity(intent);
             }
         });

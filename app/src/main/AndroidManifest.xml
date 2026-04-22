@@ -26,6 +26,7 @@
         <activity android:name=".InternalStorageActivity" />
         <activity android:name=".ExternalStorageActivity" />
         <activity android:name=".SQLiteActivity" />
+        <activity android:name=".SQLiteLoginActivity" />
         <activity android:name=".RegisterActivity" />
     </application>
 
