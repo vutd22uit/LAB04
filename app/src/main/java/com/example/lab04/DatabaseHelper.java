@@ -75,8 +75,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count > 0;
     }
 
-    // --- Class methods ---
+    // --- Class methods (Câu 4.1) ---
+
+    // Kiểm tra Mã lớp tồn tại (Tránh trùng khóa UNIQUE)
+    public boolean isMaLopExists(String malop) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CLASSES, new String[]{COLUMN_ID},
+                COLUMN_CLASS_ID + "=?", new String[]{malop}, null, null, null);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
+
+    // Thêm lớp mới
     public boolean addClass(String malop, String tenlop, int siso) {
+        if (isMaLopExists(malop)) return false;
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_CLASS_ID, malop);
@@ -86,6 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    // Cập nhật lớp học
     public boolean updateClass(String malop, String tenlop, int siso) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -95,15 +109,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
+    // Xóa lớp học
     public boolean deleteClass(String malop) {
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete(TABLE_CLASSES, COLUMN_CLASS_ID + "=?", new String[]{malop});
         return result > 0;
     }
 
+    // Lấy danh sách hiển thị lên ListView
     public Cursor getAllClasses() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_CLASSES, null);
+        return db.rawQuery("SELECT * FROM " + TABLE_CLASSES + " ORDER BY " + COLUMN_ID + " DESC", null);
     }
 
     // MD5 Encryption

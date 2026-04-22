@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 String username = edtUsername.getText().toString().trim();
                 String password = edtPassword.getText().toString().trim();
 
-                // Kiểm tra đăng nhập (Ví dụ: minhtien/1234)
+                // Kiểm tra đăng nhập
                 if (username.equals("minhtien") && password.equals("1234")) {
                     Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     
